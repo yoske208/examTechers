@@ -51,6 +51,10 @@ export const getUsers = async(req:Request, res:Response) => {
     res.json(users)
 }
 
+export const getGreades = async (req:Request,res:Response) => {
+    const users = await userServices.getAllGreades()
+}
+
 export const updateUserById = async(req:Request, res:Response) => {
     const user = await userServices.updateUser(req.params.id,req.body)
 

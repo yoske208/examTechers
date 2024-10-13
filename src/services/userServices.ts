@@ -17,11 +17,15 @@ export const createUser = async(UserData:Partial<IUser>,classId : string,greades
 // }
 
 export const getUserById = async (id : string): Promise <IUser | null> => {
-    return await User.findById(id).select("-password").populate("department")
+    return await User.findById(id).select("-password").populate("user")
 };
 
 export const getAllUsers = async ():Promise <IUser[]> => {
-    return await User.find().select("-password").populate("department")
+    return await User.find().select("-password").populate("user")
+}
+
+export const getAllGreades = async ():Promise <IUser[]> => {
+    return await User.find().select("-password").populate("Greades")
 }
 
 export const updateUser = async(id:string,updateData:Partial<IUser>):Promise <IUser | null> => {
