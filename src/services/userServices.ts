@@ -46,6 +46,14 @@ export const getUserBySalaryRange = async(minSalary:number,maxSalary:number): Pr
     }).select("-password")
 }
 
+export const getUserAVG = async() => {
+    const avgGreades = await User.aggregate([
+        {$group: {_id:null,avgGreades:{$avg:"Greades"}}}
+    ])
+    return avgGreades
+
+}
+
 export const getUserStatistics = async() => {
     //סידור לפי גובה המשכורת מהגבוה לנמוך
     const highSalary = await User.findOne().sort("-salary").select("userName salary")

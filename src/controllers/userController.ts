@@ -81,3 +81,9 @@ export const getStatistic = async(req:Request, res:Response) => {
     const statistic = await userServices.getUserStatistics()
     res.json(statistic)
 }
+
+
+export const getavg = async(req:Request, res:Response) => {
+    const statistic = await userServices.getUserAVG()
+    res.json(statistic)
+}
