@@ -1,5 +1,4 @@
 import mongoosem, {Schema,Document,Types} from "mongoose";
-import validator from "validator";
 import {IClass} from "./classModel"
 import {IUser} from "./userModel"
 
@@ -7,7 +6,7 @@ import {IUser} from "./userModel"
 export interface IGreades extends Document {
     greade: {
         greades : number[]
-        class : IClass ["_id"],
+        classname : IClass ["_id"],
         user : IUser ["_id"],
     }
     
@@ -17,16 +16,13 @@ const greadesSchema = new Schema<IGreades>({
     greade:{
         greades: [
             {
-                type: String,
-                validate: {
-                  validator: (value: string) => validator.isURL(value),
-                  message: "Please provide a valid URL",
-                },
-              },
+                type: [Number],
+               
+            },
         ],
 
         
-        class: [
+        classname: [
             { type: Schema.Types.ObjectId,
                ref: "Class" }
         ],
@@ -41,4 +37,4 @@ const greadesSchema = new Schema<IGreades>({
 
 })
 
-export default mongoosem.model<IClass>("Greades",greadesSchema)
+export default mongoosem.model<IGreades>("Greades",greadesSchema)

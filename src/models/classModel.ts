@@ -1,5 +1,4 @@
 import mongoosem, {Schema,Document,Types} from "mongoose";
-import validator from "validator";
 import {IGreades} from "./greadesModel"
 import {IUser} from "./userModel"
 
