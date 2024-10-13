@@ -5,8 +5,59 @@ import  {authMiddleware,menegerAuthMiddleware}  from "../middleware/authMiddleWa
 
 const greadesRouter = express.Router()
 
+/**
+ * @swagger
+ * /greades:
+ *  post:
+ *    summary: קבלת כל המשתמשים
+ *    description: תחזיר רשימה של כל המשתמשים. זמין רק למנהלים
+ *    security:
+ *      -cookieAuth: []
+ *    responses:
+ *      200:
+ *         description: רשימת משתמשים הוחזרה בהצלחה
+ *      401:
+ *         description: לא מורשה, נדרשת התחברות
+ *      403: 
+ *         description: נדרשת הרשאת מנהל
+ */
+
 greadesRouter.post("/auth",register)
+
+/**
+ * @swagger
+ * /greades:
+ *  post:
+ *    summary: קבלת כל המשתמשים
+ *    description: תחזיר רשימה של כל המשתמשים. זמין רק למנהלים
+ *    security:
+ *      -cookieAuth: []
+ *    responses:
+ *      200:
+ *         description: רשימת משתמשים הוחזרה בהצלחה
+ *      401:
+ *         description: לא מורשה, נדרשת התחברות
+ *      403: 
+ *         description: נדרשת הרשאת מנהל
+ */
 greadesRouter.post("/auth/login",login)
+
+/**
+ * @swagger
+ * /greades:
+ *  get:
+ *    summary: קבלת כל המשתמשים
+ *    description: תחזיר רשימה של כל המשתמשים. זמין רק למנהלים
+ *    security:
+ *      -cookieAuth: []
+ *    responses:
+ *      200:
+ *         description: רשימת משתמשים הוחזרה בהצלחה
+ *      401:
+ *         description: לא מורשה, נדרשת התחברות
+ *      403: 
+ *         description: נדרשת הרשאת מנהל
+ */
 greadesRouter.get("/",getGreades)
 // greadesRouter.post("/:id,)
 

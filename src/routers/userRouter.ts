@@ -10,7 +10,7 @@ const userRouter = express.Router()
 /**
  * @swagger
  * /users:
- *  get:
+ *  post:
  *    summary: קבלת כל המשתמשים
  *    description: תחזיר רשימה של כל המשתמשים. זמין רק למנהלים
  *    security:
@@ -25,12 +25,131 @@ const userRouter = express.Router()
  */
 
 userRouter.post("/auth/register",register)
+
+/**
+ * @swagger
+ * /users:
+ *  get:
+ *    summary: קבלת כל המשתמשים
+ *    description: תחזיר רשימה של כל המשתמשים. זמין רק למנהלים
+ *    security:
+ *      -cookieAuth: []
+ *    responses:
+ *      200:
+ *         description: רשימת משתמשים הוחזרה בהצלחה
+ *      401:
+ *         description: לא מורשה, נדרשת התחברות
+ *      403: 
+ *         description: נדרשת הרשאת מנהל
+ */
 userRouter.get("/",getUsers)
+
+/**
+ * @swagger
+ * /users:
+ *  get:
+ *    summary: קבלת כל המשתמשים
+ *    description: תחזיר רשימה של כל המשתמשים. זמין רק למנהלים
+ *    security:
+ *      -cookieAuth: []
+ *    responses:
+ *      200:
+ *         description: רשימת משתמשים הוחזרה בהצלחה
+ *      401:
+ *         description: לא מורשה, נדרשת התחברות
+ *      403: 
+ *         description: נדרשת הרשאת מנהל
+ */
 userRouter.get("/",getGreades)
+
+/**
+ * @swagger
+ * /users:
+ *  get:
+ *    summary: קבלת כל המשתמשים
+ *    description: תחזיר רשימה של כל המשתמשים. זמין רק למנהלים
+ *    security:
+ *      -cookieAuth: []
+ *    responses:
+ *      200:
+ *         description: רשימת משתמשים הוחזרה בהצלחה
+ *      401:
+ *         description: לא מורשה, נדרשת התחברות
+ *      403: 
+ *         description: נדרשת הרשאת מנהל
+ */
 userRouter.get("/",authMiddleware,menegerAuthMiddleware,getavg)
+
+/**
+ * @swagger
+ * /users:
+ *  delete:
+ *    summary: קבלת כל המשתמשים
+ *    description: תחזיר רשימה של כל המשתמשים. זמין רק למנהלים
+ *    security:
+ *      -cookieAuth: []
+ *    responses:
+ *      200:
+ *         description: רשימת משתמשים הוחזרה בהצלחה
+ *      401:
+ *         description: לא מורשה, נדרשת התחברות
+ *      403: 
+ *         description: נדרשת הרשאת מנהל
+ */
 userRouter.delete("/:id",deleteUserById)
+
+/**
+ * @swagger
+ * /users:
+ *  post:
+ *    summary: קבלת כל המשתמשים
+ *    description: תחזיר רשימה של כל המשתמשים. זמין רק למנהלים
+ *    security:
+ *      -cookieAuth: []
+ *    responses:
+ *      200:
+ *         description: רשימת משתמשים הוחזרה בהצלחה
+ *      401:
+ *         description: לא מורשה, נדרשת התחברות
+ *      403: 
+ *         description: נדרשת הרשאת מנהל
+ */
 userRouter.post("/auth/register",register)
+
+/**
+ * @swagger
+ * /users:
+ *  post:
+ *    summary: קבלת כל המשתמשים
+ *    description: תחזיר רשימה של כל המשתמשים. זמין רק למנהלים
+ *    security:
+ *      -cookieAuth: []
+ *    responses:
+ *      200:
+ *         description: רשימת משתמשים הוחזרה בהצלחה
+ *      401:
+ *         description: לא מורשה, נדרשת התחברות
+ *      403: 
+ *         description: נדרשת הרשאת מנהל
+ */
 userRouter.post("/auth/login",login)
+
+/**
+ * @swagger
+ * /users:
+ *  put:
+ *    summary: קבלת כל המשתמשים
+ *    description: תחזיר רשימה של כל המשתמשים. זמין רק למנהלים
+ *    security:
+ *      -cookieAuth: []
+ *    responses:
+ *      200:
+ *         description: רשימת משתמשים הוחזרה בהצלחה
+ *      401:
+ *         description: לא מורשה, נדרשת התחברות
+ *      403: 
+ *         description: נדרשת הרשאת מנהל
+ */
 userRouter.put("/:id",authMiddleware,menegerAuthMiddleware,updateUserById)
 
 export default userRouter

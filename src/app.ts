@@ -13,6 +13,22 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 
+const options = {
+    definition: {
+      openapi: '3.0.0',
+      info: {
+        title: 'employees project',
+        version: '1.0.0',
+      },
+      servers: [{
+        url : "http://localhost:3000"
+      }]
+    },
+    apis: ['./src/routers/*.ts'], // files containing annotations as above
+  };
+  
+  const openapiSpecification = swaggerJsdoc(options);
+  app.use("/api-docs",swaggerUi.serve,swaggerUi.setup(openapiSpecification))
 
 connectDB()
 
