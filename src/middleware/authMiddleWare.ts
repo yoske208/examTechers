@@ -25,6 +25,7 @@ export const authMiddleware = (req : AuthRequest, res : Response, next : NextFun
 }
 
 export const menegerAuthMiddleware = (req : AuthRequest, res : Response, next : NextFunction): void => {
+    
     if(req.user?.role !== "teacher"){
         res.status(403).json({message : "accses denaide, teacher only"})
     }else{

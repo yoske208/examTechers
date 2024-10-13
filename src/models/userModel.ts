@@ -68,3 +68,4 @@ UserSchema.methods.comparePassword = async function(userPassword:string): Promis
 }
 
 export default mongoosem.model<IUser>("User",UserSchema)
+
