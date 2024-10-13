@@ -2,6 +2,9 @@ import  express  from "express";
 import  {getGreades}  from "../controllers/greadesController";
 import  {register,login}  from "../controllers/authController";
 import  {authMiddleware,menegerAuthMiddleware}  from "../middleware/authMiddleWare";
+import  {errorHendler}  from "../utils/errorHendler";
+
+
 
 const greadesRouter = express.Router()
 
@@ -58,7 +61,7 @@ greadesRouter.post("/auth/login",login)
  *      403: 
  *         description: נדרשת הרשאת מנהל
  */
-greadesRouter.get("/",getGreades)
+greadesRouter.get("/",errorHendler(getGreades))
 // greadesRouter.post("/:id,)
 
 

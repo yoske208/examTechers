@@ -78,7 +78,7 @@ userRouter.get("/",getGreades)
  *      403: 
  *         description: נדרשת הרשאת מנהל
  */
-userRouter.get("/",authMiddleware,menegerAuthMiddleware,getavg)
+userRouter.get("/",authMiddleware,menegerAuthMiddleware,errorHendler(getavg))
 
 /**
  * @swagger
